@@ -32,6 +32,7 @@ start(){
     touch $CATALINA_PID
     chown ${TOMCAT_USER}.${TOMCAT_GROUP} $CATALINA_PID
   } > /dev/null 2>&1 || true
+  cd ${CATALINA_BASE}
   daemon --user $TOMCAT_USER --pidfile $CATALINA_PID ${CATALINA_HOME}/bin/catalina.sh start
   ret=$?
   echo
